@@ -22,7 +22,7 @@ Conventions
 
 This example follows the following basic conventions:
 
- | unit tests | integration tests
+ | unit test | integration test
 --- | --- | ---
 __resides in:__ | `src/test/java/*Test.java` | `src/test/java/*IT.java`
 __executes in Maven phase:__ | test | verify
