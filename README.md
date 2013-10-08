@@ -16,6 +16,7 @@ Running the tests
 
 * To run the unit tests, call `mvn test`
 * To run the integration tests as well, call `mvn verify`
+* To generate (unit test) code coverage reports, call `mvn cobertura:cobertura`, and point a browser at the output in `target/site/cobertura/`
 
 Conventions
 -----------
