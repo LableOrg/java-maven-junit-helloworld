@@ -6,8 +6,9 @@ A „Hello World!” sample written in Java using Maven for the build, that show
 This example demonstrates:
 
 * Unit tests written with [JUnit 4](http://junit.org/)
+* Unit test using [PowerMockito](https://code.google.com/p/powermock/) to mock classes and test `System.exit()`
 * Integration tests written with [JUnit 4](http://junit.org/)
-* Using [system-rules](http://www.stefan-birkner.de/system-rules/) to test `System.out` and `System.exit()`
+* Integration test using [system-rules](http://www.stefan-birkner.de/system-rules/) to test `System.out`
 * Code coverage reports via [Cobertura](http://cobertura.github.io/cobertura/)
 * A Maven build that puts it all together
 
