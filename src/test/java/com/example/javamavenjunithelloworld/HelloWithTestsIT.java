@@ -1,4 +1,4 @@
-package com.example.hellowithtests;
+package com.example.javamavenjunithelloworld;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 /**
- * Integration test for the hellowithtests program.
+ * Integration test for the HelloApp program.
  * <p/>
  * An integration test verifies the workings of a complete program, a module, or a set of dependant classes.
  * <p/>

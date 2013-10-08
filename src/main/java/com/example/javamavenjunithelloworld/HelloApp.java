@@ -1,4 +1,4 @@
-package com.example.hellowithtests;
+package com.example.javamavenjunithelloworld;
 
 /**
  * A very basic program that demonstrates the use of JUnit tests. The tests include a sample unit test and an
