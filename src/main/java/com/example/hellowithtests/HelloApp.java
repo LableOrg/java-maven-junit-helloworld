@@ -29,9 +29,9 @@ public class HelloApp {
             }
         }
 
-        Hello hi = null;
+        Hello hi = new Hello();
         try {
-            hi = new Hello(times);
+            hi.setTimes(times);
         } catch (IllegalArgumentException e) {
             System.err.println("Something went wrong: " + e.getMessage());
             System.exit(EXIT_STATUS_HELLO_FAILED);

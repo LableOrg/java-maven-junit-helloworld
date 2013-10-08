@@ -21,7 +21,7 @@ public class HelloTest {
         OutputStream os = new ByteArrayOutputStream();
         PrintStream stream = new PrintStream(os, true);
 
-        Hello hi = new Hello(1);
+        Hello hi = new Hello();
         hi.sayHello(stream);
 
         assertThat(os.toString(), is(equalTo(Hello.HELLO + "\n")));
@@ -32,7 +32,8 @@ public class HelloTest {
         OutputStream os = new ByteArrayOutputStream();
         PrintStream stream = new PrintStream(os, true);
 
-        Hello hi = new Hello(3);
+        Hello hi = new Hello();
+        hi.setTimes(3);
         hi.sayHello(stream);
 
         // Does it say "Hello!" three times?
@@ -42,11 +43,13 @@ public class HelloTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testIllegalArgumentForHello21() {
-        new Hello(21);
+        Hello hi = new Hello();
+        hi.setTimes(Hello.MAXIMUM_AMOUNT_OF_TIMES + 1);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testIllegalArgumentForHelloNegative() {
-        new Hello(-1);
+        Hello hi = new Hello();
+        hi.setTimes(-1);
     }
 }
