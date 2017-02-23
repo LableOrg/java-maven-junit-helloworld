@@ -41,6 +41,8 @@ public class HelloTest {
         assertThat(os.toString(), is(equalTo(goal)));
     }
 
+    // FOO comment only
+    
     @Test(expected = IllegalArgumentException.class)
     public void testIllegalArgumentForHello21() {
         Hello hi = new Hello();
