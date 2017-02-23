@@ -42,6 +42,7 @@ public class HelloTest {
     }
 
     // FOO comment only
+    int a = 2+2;
     
     @Test(expected = IllegalArgumentException.class)
     public void testIllegalArgumentForHello21() {
