@@ -1,6 +1,6 @@
 node {
     stage("Build"){
-        git url: 'https://github.com/sowmiya99/java-maven-junit-helloworld.git'
+        git url: 'http://54.242.23.66/karthik/spring-pet.git'
         bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean package"
         }
    }
