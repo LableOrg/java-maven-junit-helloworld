@@ -1,6 +1,6 @@
 node {
     stage("Build"){
-        git url: 'https://github.com/sowmiya99/Retail-WebApp-Service.git'
-        bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean install"
+        git url: 'https://github.com/sowmiya99/java-maven-junit-helloworld.git'
+        bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean package"
         }
    }
