@@ -1,6 +1,6 @@
 node {
     stage("Build"){
         git url: 'http://54.242.23.66/root/onlinebanking.git'
-        bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean package"
+        bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean"
         }
    }
