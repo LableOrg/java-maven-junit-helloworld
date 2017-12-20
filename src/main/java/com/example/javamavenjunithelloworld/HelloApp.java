@@ -5,6 +5,7 @@ package com.example.javamavenjunithelloworld;
  * integration test.
  */
 public class HelloApp {
+    
 
     static int DEFAULT_TIMES = 3;
 

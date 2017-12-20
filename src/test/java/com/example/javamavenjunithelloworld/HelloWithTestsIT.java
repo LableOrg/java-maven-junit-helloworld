@@ -32,7 +32,7 @@ public class HelloWithTestsIT {
 
     @Test
     public void doesItSayHelloTest3() {
-        String[] args = {"3"};
+        String[] args = {"2"};
         HelloApp.main(args);
 
         String thrice = Hello.HELLO + "\n" + Hello.HELLO + "\n" + Hello.HELLO + "\n";
