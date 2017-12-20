@@ -37,6 +37,18 @@ public class HelloAppTest {
         PowerMockito.verifyStatic(only());
         System.exit(HelloApp.EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
     }
+    
+     @Test
+    public void testWrongArgument() {
+        PowerMockito.mockStatic(System.class);
+
+        String[] args = {"bike"};
+        HelloApp.main(args);
+
+        // Did the program exit with the expected error code?
+        PowerMockito.verifyStatic(only());
+        System.exit(HelloApp.EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
+    }
 
     @Test
     public void testHelloError() throws Exception {
