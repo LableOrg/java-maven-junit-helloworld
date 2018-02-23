@@ -1,2 +1,2 @@
 @Library('mylibrary') _
-test.firstTest()
+test()
