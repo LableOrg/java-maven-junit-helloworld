@@ -1,6 +1,7 @@
 node {
-    stage("Build"){
-        git url: 'http://54.242.23.66/root/onlinebanking.git'
-        bat "D:\\Binaries\\apache-maven-3.3.9\\bin\\mvn clean install"
-        }
-   }
+    // Load the file 'externalMethod.groovy' from the current directory, into a variable called "externalMethod".
+    def externalMethod = load("externalMethod.groovy")
+
+    // Call the method we defined in externalMethod.
+    externalMethod.lookAtThis("Steve")
+}
