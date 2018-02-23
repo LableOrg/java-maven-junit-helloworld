@@ -1,6 +1,7 @@
 def firstTest() {
     // stuff here
-    echo 'bla'
+    sh 'date'
+    sh 'ls -latr /tmp'
 }
 
 def testTwo() {
