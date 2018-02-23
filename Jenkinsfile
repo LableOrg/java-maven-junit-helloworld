@@ -1,2 +1,2 @@
 @Library('standardPipeline') _
-standardPipeline.firstTest()
+firstTest()
