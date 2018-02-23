@@ -6,6 +6,6 @@ def firstTest() {
 
 def testTwo() {
     //more stuff here
-    echo 'bla'
+    echo 'Im Test two'
 }
 return this
