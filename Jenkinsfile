@@ -1,4 +1,2 @@
 @Library('mylibrary') _
-test {
-     
-    }
+test()
