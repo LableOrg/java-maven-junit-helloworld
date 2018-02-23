@@ -1,3 +1,5 @@
 @Library('mylibrary') _
-pipeline = load 'test.groovy'
-pipeline.firstTest()
+test {
+        projectName = "Project1"
+        serverDomain = "Project1 Server Domain"
+    }
