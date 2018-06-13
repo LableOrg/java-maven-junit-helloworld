@@ -22,9 +22,14 @@ node(){
 
     stage('Build'){
         container('maven'){
+	try {
           BUILD_ID = sh(returnStdout: true, script: 'echo "`git rev-parse --verify HEAD`"')
           sh 'mvn -f pom.xml clean org.jacoco:jacoco-maven-plugin:0.8.0::prepare-agent install'
+		currentBuild.result = 'SUCCESS'
+	}catch (Exception err){
+		currentBuild.result = 'FAILURE'
         }
+	}
     }
     
     /*stage('SonarAnalysis'){
@@ -82,9 +87,9 @@ node(){
 }*/
     
     stage ('Call test job') {
-      if (currentBuild.result == 'SUCCESS') {
+      	if (currentBuild.result == 'SUCCESS') {
 		//build job: 'deploy-nonprod-qa-order-domain-api', parameters: [[$class: 'StringParameterValue', name: 'GIT_COMMIT_ID_LATEST', value: GIT_COMMIT_ID ], [$class: 'StringParameterValue', name: 'PrevBuildstatus', value: currentBuild.result]]
           build job: 'pull-request-builder-test'
-      }	
-	}
+      	}	
+    }
 }
