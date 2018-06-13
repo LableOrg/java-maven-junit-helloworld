@@ -26,7 +26,6 @@ node(){
           sh 'mvn -f pom.xml clean org.jacoco:jacoco-maven-plugin:0.8.0::prepare-agent install'
         }
     }
-}
     
     /*stage('SonarAnalysis'){
         withSonarQubeEnv {
@@ -81,3 +80,11 @@ node(){
         }
     }
 }*/
+    
+    stage ('Call test job') {
+      if (currentBuild.result == 'SUCCESS') {
+		//build job: 'deploy-nonprod-qa-order-domain-api', parameters: [[$class: 'StringParameterValue', name: 'GIT_COMMIT_ID_LATEST', value: GIT_COMMIT_ID ], [$class: 'StringParameterValue', name: 'PrevBuildstatus', value: currentBuild.result]]
+          build job: 'pull-request-builder-test'
+      }	
+	}
+}
