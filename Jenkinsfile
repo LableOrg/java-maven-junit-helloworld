@@ -1,7 +1,6 @@
 import java.text.SimpleDateFormat
 
-node(){
-    
+node(){    
     def currentWorkspace = pwd()
     def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
     def buildTimeStamp = dateFormat.format(new Date())
