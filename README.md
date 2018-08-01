@@ -30,4 +30,4 @@ __resides in:__ | `src/test/java/*Test.java` | `src/test/java/*IT.java`
 __executes in Maven phase:__ | test | verify
 __handled by Maven plugin:__ | [surefire](http://maven.apache.org/surefire/maven-surefire-plugin/) | [failsafe](http://maven.apache.org/surefire/maven-failsafe-plugin/)
 
-Test
+Test1
