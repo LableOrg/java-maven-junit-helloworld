@@ -2,7 +2,7 @@ java-maven-junit-helloworld
 Demo training
 *******************
 ===========================
-
+Sowmiya
 A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
 This example demonstrates:
