@@ -1,24 +1,38 @@
 package com.example.javamavenjunithelloworld;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import com.example.javamavenjunithelloworld.TestingSecurityManager.TestExitException;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.*;
-import static org.powermock.api.mockito.PowerMockito.whenNew;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
+
 
 /**
  * Unit test for HelloApp.
  * <p/>
  * A unit test aims to test all code and code paths of a specific class.
- * <p/>
- * This test uses PowerMock and Mockito to mock objects.
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({System.class, HelloApp.class})
+@ExtendWith(MockitoExtension.class)
 public class HelloAppTest {
+    static SecurityManager originalSecurityManager;
+
+    @BeforeAll
+    public static void setup() {
+        // Insert our own custom SecurityManager that throws an exception when System.exit() is called.
+        originalSecurityManager = System.getSecurityManager();
+        System.setSecurityManager(new TestingSecurityManager());
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        // Reinsert the original SecurityManager now that we are done with these tests.
+        System.setSecurityManager(originalSecurityManager);
+    }
 
     @Test
     public void testMain() {
@@ -27,34 +41,32 @@ public class HelloAppTest {
     }
 
     @Test
-    public void testWrongArgument() {
-        PowerMockito.mockStatic(System.class);
-
+    public void testBogusArgument() {
         String[] args = {"bicycle"};
-        HelloApp.main(args);
 
-        // Did the program exit with the expected error code?
-        PowerMockito.verifyStatic(only());
-        System.exit(HelloApp.EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
+        try {
+            HelloApp.main(args);
+            // Our custom SecurityManager should have thrown an exception when HelloApp exited.
+            // This means this line below cannot be reached. To make sure that our custom SecurityManager
+            // works as expected, we fail the test if this line is ever reached:
+            fail("Unreachable.");
+        } catch (TestExitException e) {
+            // Did the program exit with the expected error code?
+            assertThat(e.getStatus(), is(HelloApp.EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD));
+        }
     }
 
     @Test
-    public void testHelloError() throws Exception {
-        PowerMockito.mockStatic(System.class);
+    public void testTooHighArgument() {
+        String[] args = {"999"};
 
-        // Mock Hello used by HelloApp to throw the expected exception when invoked with setTimes(5).
-        Hello hi = mock(Hello.class);
-        doThrow(new IllegalArgumentException("Nope.")).when(hi).setTimes(5);
-        // Sneakily insert our fake Hello class when it is created.
-        whenNew(Hello.class).withNoArguments().thenReturn(hi);
-
-        // We know this will raise the expected exception, because we mocked Hello.
-        String[] args = {"5"};
-        HelloApp.main(args);
-
-        // Did the program exit with the expected error code?
-        PowerMockito.verifyStatic(only());
-        System.exit(HelloApp.EXIT_STATUS_HELLO_FAILED);
+        try {
+            HelloApp.main(args);
+            fail("Unreachable.");
+        } catch (TestExitException e) {
+            // Did the program exit with the expected error code?
+            assertThat(e.getStatus(), is(HelloApp.EXIT_STATUS_HELLO_FAILED));
+        }
     }
 
     @Test

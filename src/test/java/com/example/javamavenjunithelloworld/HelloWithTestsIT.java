@@ -1,33 +1,44 @@
 package com.example.javamavenjunithelloworld;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Integration test for the HelloApp program.
  * <p/>
  * An integration test verifies the workings of a complete program, a module, or a set of dependant classes.
- * <p/>
- * This integration test uses system-rules, an extension for JUnit that lets you test System.out and System.exit()
- * etc.:
- * <p/>
- * http://www.stefan-birkner.de/system-rules
  */
 public class HelloWithTestsIT {
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
-    @Rule
-    public final StandardOutputStreamLog out = new StandardOutputStreamLog();
+    @BeforeEach
+    public void before() {
+        // By putting our own PrintStream in the place of the normal System.out,
+        // the output produced by the application can be verified.
+        System.setOut(new PrintStream(out));
+    }
+
+    @AfterEach
+    public void cleanUp() {
+        // Restore the original System.out to prevent weirdness in any following tests.
+        System.setOut(originalOut);
+    }
 
     @Test
     public void doesItSayHelloTest() {
         String[] args = {"1"};
         HelloApp.main(args);
 
-        assertThat(out.getLog(), is(equalTo(Hello.HELLO + "\n")));
+        assertThat(out.toString(), is(Hello.HELLO + "\n"));
     }
 
     @Test
@@ -36,6 +47,6 @@ public class HelloWithTestsIT {
         HelloApp.main(args);
 
         String thrice = Hello.HELLO + "\n" + Hello.HELLO + "\n" + Hello.HELLO + "\n";
-        assertThat(out.getLog(), is(equalTo(thrice)));
+        assertThat(out.toString(), is(thrice));
     }
 }
