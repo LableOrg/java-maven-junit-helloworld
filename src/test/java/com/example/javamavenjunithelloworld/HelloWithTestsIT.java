@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Integration test for the HelloApp program.
- * <p/>
+ * <p>
  * An integration test verifies the workings of a complete program, a module, or a set of dependant classes.
  */
 public class HelloWithTestsIT {
@@ -38,7 +38,7 @@ public class HelloWithTestsIT {
         String[] args = {"1"};
         HelloApp.main(args);
 
-        assertThat(out.toString(), is(Hello.HELLO + "\n"));
+        assertThat(out.toString(), is(String.format("%s%s", Hello.HELLO, System.lineSeparator())));
     }
 
     @Test
@@ -46,7 +46,10 @@ public class HelloWithTestsIT {
         String[] args = {"3"};
         HelloApp.main(args);
 
-        String thrice = Hello.HELLO + "\n" + Hello.HELLO + "\n" + Hello.HELLO + "\n";
+        // Hello
+        // Hello
+        // Hello
+        String thrice = String.format("%1$s%2$s%1$s%2$s%1$s%2$s", Hello.HELLO, System.lineSeparator());
         assertThat(out.toString(), is(thrice));
     }
 }
