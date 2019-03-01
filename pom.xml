@@ -25,6 +25,7 @@
     <mockito.version>2.21.0</mockito.version>
     <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
   </properties>
+  
   <dependencies>
     <!-- Testing dependencies. -->
     <dependency>
