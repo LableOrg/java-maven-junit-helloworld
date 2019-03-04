@@ -38,7 +38,7 @@ public class HelloWithTestsIT {
         String[] args = {"1"};
         HelloApp.main(args);
 
-        assertThat(out.toString(), is(String.format("%s%s", Hello.HELLO, System.lineSeparator())));
+        assertThat(out.toString(), is(String.format("%s%s", Hello.helloMsg, System.lineSeparator())));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class HelloWithTestsIT {
         // Hello
         // Hello
         // Hello
-        String thrice = String.format("%1$s%2$s%1$s%2$s%1$s%2$s", Hello.HELLO, System.lineSeparator());
+        String thrice = String.format("%1$s%2$s%1$s%2$s%1$s%2$s", Hello.helloMsg, System.lineSeparator());
         assertThat(out.toString(), is(thrice));
     }
 }
