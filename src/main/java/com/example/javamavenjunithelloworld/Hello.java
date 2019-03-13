@@ -7,7 +7,7 @@ import java.io.PrintStream;
  */
 public class Hello {
 
-    static final String HELLO = "Hello!";
+    static final String HELLO_MSG = "Hello!";
 
     public static final int MAXIMUM_AMOUNT_OF_TIMES = 20;
 
@@ -36,7 +36,7 @@ public class Hello {
      */
     public void sayHello(PrintStream printer) {
         for (short i = 0; i < times; i++) {
-            printer.println(HELLO);
+            printer.println(HELLO_MSG);
         }
     }
 
