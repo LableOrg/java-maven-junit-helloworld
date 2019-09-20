@@ -1,8 +1,11 @@
 # A Java/Maven/JUnit HelloWorld example
 
+**This branch targeting Java 11 is work-in-progress.**
+
 A „Hello World!” sample written in Java using Maven for the build, that showcases a few very simple tests.
 
 This example demonstrates:
+
 
 * A simple Java 8 application wixxth tests
 * Unit tests written with [JUnit 5](https://junit.org/junit5/)
