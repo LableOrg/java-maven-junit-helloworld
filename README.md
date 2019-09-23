@@ -1,4 +1,4 @@
-# A Java/Maven/JUnit HelloWorld examplee
+# A Java/Maven/JUnit HelloWorld example
 
 **This branch targeting Java 11 is work-in-progress.**
 
