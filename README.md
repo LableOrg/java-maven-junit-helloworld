@@ -6,7 +6,7 @@ A „Hello World!” sample written in Java using Maven for the build, that show
 
 This example demonstrates:
 
-
+mmm
 * A simple Java 8 application wixxth tests
 * Unit tests written with [JUnit 5](https://junit.org/junit5/)
 * Integration tests written with [JUnit 5](https://junit.org/junit5/)
