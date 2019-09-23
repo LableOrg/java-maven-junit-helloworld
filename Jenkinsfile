@@ -4,7 +4,7 @@ stages {
 
     stage('Clean WorkSpace') {
         steps {
-                delete dir
+                deleteDir()
             } 
         }
     stage('Git-Checkout') {
