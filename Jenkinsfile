@@ -15,7 +15,7 @@ stages {
     stage('Test the Cases') {
         steps {
             script { 
-                sh 'mvn compile test package'
+                sh 'sudo mvn compile test package'
                 }
             }
         }
