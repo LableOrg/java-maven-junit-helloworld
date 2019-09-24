@@ -16,7 +16,7 @@ mmm
 ## Running the tests;lk;l
 
 * To run the unit tests, call `mvn test`
-* To run the integration tests as well, call `mvn verify`
+* To run the integration tests as well, call `mvn verify`.
 * Code coverage reports are generated when `mvn verify` (or a full `mvn clean install`) is called.
   Point a browser at the output in `target/site/jacoco-both/index.html` to see the report.
 
