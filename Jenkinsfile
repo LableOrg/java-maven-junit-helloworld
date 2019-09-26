@@ -17,18 +17,19 @@ pipeline{
             steps {
                 deleteDir()
                 echo 'Cleeanup done'
-		    script {
-			    branch = "${getDeploymentEnvironment()}"
-			    echo "the present branch is: ${branch}"
-		    }
             }
         }  
 
-        stage('Checkout')
-        {
-        	steps{
-        			checkout scm
+        stage('Checkout'){
+            steps {
+        	checkout scm
+		    script {
+			    branch = "${getDeploymentEnvironment()}"
+			    echo "the present branch is: ${branch}"
+		    	}
         	}
-        }
+         }
+	
+		
     }
 }
