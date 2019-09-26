@@ -1,6 +1,3 @@
-
-#!groovy
-
 def getDeploymentEnvironment() {
     if (env.BRANCH_NAME.startsWith('PR-')) {
         return 'development'
