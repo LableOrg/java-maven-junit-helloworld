@@ -17,6 +17,8 @@ pipeline{
             steps {
                 deleteDir()
                 echo 'Cleeanup done'
+		    def = ${getDeploymentEnvironment()}
+		    echo "the present branch is: ${def}"
             }
         }  
 
