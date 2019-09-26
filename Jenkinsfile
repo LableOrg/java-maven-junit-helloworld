@@ -2,12 +2,10 @@ def branch
 
 def getDeploymentEnvironment() {
     if (env.BRANCH_NAME.startsWith('PR-')) {
-        return 'development'
-    } else if (env.BRANCH_NAME == 'master') {
-        return 'production'
-    }
-
-    return env.BRANCH_NAME
+        return 'pr'
+    } else {
+	    return env.BRANCH_NAME
+    }   
 }
 
 pipeline{
