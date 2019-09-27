@@ -23,13 +23,24 @@ pipeline{
         stage('Checkout'){
             steps {
         	checkout scm
-		    script {
-			    branch = "${getDeploymentEnvironment()}"
-			    echo "the present branch is: ${branch}"
-		    	}
+			    script {
+				    branch = "${getDeploymentEnvironment()}"
+				    echo "the present branch is: ${branch}"
+			    	}
         	}
          }
 	
+		stage('Compile') {
+            steps {
+            	script {
+            			sh 'mvn --version'
+            			sh 'mvn clean'
+            			sh 'mvn compile'
+            	}
+                
+            }
+        }  
+
 		
     }
 }
