@@ -26,3 +26,7 @@ This example follows the following basic conventions:
 | **resides in:** | `src/test/java/*Test.java` | `src/test/java/*IT.java` |
 | **executes in Maven phase:** | test | verify |
 | **handled by Maven plugin:** | [surefire](http://maven.apache.org/surefire/maven-surefire-plugin/) | [failsafe](http://maven.apache.org/surefire/maven-failsafe-plugin/) |
+
+## Build test
+
+This it for test
