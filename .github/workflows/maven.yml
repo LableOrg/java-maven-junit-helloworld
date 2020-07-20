@@ -30,4 +30,4 @@ jobs:
       run: mvn test --file pom.xml 
 
     - name: Upload test results
-      run:  python upload-test-results.py --file TEST-com.mkyong.examples.TestMessageBuilder.xml --org test-hub --project java-maven-junit-helloworld  --build $GITHUB_RUN_NUMBER --coverage jacoco.xml --branch $GITHUB_REF
+      run:  pip install requests && python upload-test-results.py --file TEST-com.mkyong.examples.TestMessageBuilder.xml --org test-hub --project java-maven-junit-helloworld  --build $GITHUB_RUN_NUMBER --coverage jacoco.xml --branch $GITHUB_REF
