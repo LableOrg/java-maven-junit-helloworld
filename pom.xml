@@ -176,14 +176,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.13.0</version>
-        <configuration>
-          <rulesets>
-            <ruleset>${basedir}/navi.ruleset</ruleset>
-          </rulesets>
-          <sourceEncoding>utf-8</sourceEncoding>
-          <targetJdk>1.8</targetJdk>
-          <minimumTokens>10</minimumTokens>
-        </configuration>
       </plugin>
 
     </plugins>
