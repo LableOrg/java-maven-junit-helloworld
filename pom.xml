@@ -181,3 +181,11 @@
     </plugins>
   </build>
 </project>
+
+<distributionManagement>
+<repository>
+  <id>github</id>
+  <name>GitHub OWNER Apache Maven Packages</name>
+  <url>https://maven.pkg.github.com/ChulHo-Kim/java-maven-junit-helloworld</url>
+</repository>
+</distributionManagement>
