@@ -180,12 +180,14 @@
 
     </plugins>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>ChulHo-Kim</name>
+      <url>https://maven.pkg.github.com/ChulHo-Kim/java-maven-junit-helloworld</url>
+    </repository>
+  </distributionManagement>
+
 </project>
 
-<distributionManagement>
-<repository>
-  <id>github</id>
-  <name>ChulHo-Kim</name>
-  <url>https://maven.pkg.github.com/ChulHo-Kim/java-maven-junit-helloworld</url>
-</repository>
-</distributionManagement>
