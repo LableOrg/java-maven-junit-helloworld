@@ -30,4 +30,32 @@ public class TestMessageBuilder {
 
     }
 
+    @Test
+    public void testNameNull_2() {
+
+        MessageBuilder obj = new MessageBuilder();
+        assertEquals("Please provide a name!", obj.getMessage(null));
+
+    }
+
+
+    @Test
+    public void testNameNull_1() {
+
+        MessageBuilder obj = new MessageBuilder();
+        assertEquals("Please provide a name!", obj.getMessage(null));
+
+    }
+
+
+    @Test
+    public void testNameNull_3() {
+
+        MessageBuilder obj = new MessageBuilder();
+        assertEquals("Please provide a name!", obj.getMessage(null));
+
+    }
+
+    
+
 }
