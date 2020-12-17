@@ -12,4 +12,3 @@ $ mvn clean test
 
 # view report at 'target/site/jacoco/index.html'
 ```
-
