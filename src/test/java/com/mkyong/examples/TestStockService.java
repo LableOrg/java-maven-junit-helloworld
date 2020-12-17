@@ -38,5 +38,89 @@ public class TestStockService {
         });
     }
 
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd7() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd6() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd5() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd4()) {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd3() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd2() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
+      @DisplayName("Test add stock")
+    @Test
+    public void testAdd1() {
+        StockService obj = new StockService(100);
+        assertEquals(110, obj.add(10));
+        assertEquals(110, obj.add(0));
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            obj.add(-1);
+        });
+    }
+
 
 }
