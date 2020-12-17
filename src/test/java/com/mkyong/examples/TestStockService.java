@@ -76,7 +76,7 @@ public class TestStockService {
 
       @DisplayName("Test add stock")
     @Test
-    public void testAdd4()) {
+    public void testAdd4() {
         StockService obj = new StockService(100);
         assertEquals(110, obj.add(10));
         assertEquals(110, obj.add(0));
@@ -121,6 +121,7 @@ public class TestStockService {
             obj.add(-1);
         });
     }
+
 
 
 }
