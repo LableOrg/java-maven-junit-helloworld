@@ -27,7 +27,7 @@ jobs:
 
     - name: Upload test results
       id: hello
-      uses: testhub-io/testhub-io.action@v0.58
+      uses: testhub-io/testhub-io.action@v0.60
       with:        
         test_result_pattern: "/target/surefire-reports/**/*.xml"
         test_coverage_pattern: "/target/site/jacoco/jacoco.xml"
