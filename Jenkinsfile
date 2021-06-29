@@ -3,16 +3,17 @@ pipeline{
   stages{
     stage('Compile Stage'){
       steps{
-        parallel(
-          linux: {
-            sh "mvn -Dmaven.test.failure.ignore=true clean package"
-          },
-           windows: {
-                       bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                    }
-         )
-        
-        
+        script {
+          if (isUnix()) {
+               sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            } else {
+            
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+      }
+
+
       
       }
     }
