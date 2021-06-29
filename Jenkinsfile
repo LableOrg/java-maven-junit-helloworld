@@ -1,19 +1,26 @@
 pipeline{
   agent any
   stages{
+    stage('Compile Stage'){
+      steps{
+        parallel(
+          linux: {
+            sh "mvn -Dmaven.test.failure.ignore=true clean package"
+          },
+           windows: {
+                       bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                    }
+         )
+        
+        
+      
+      }
+    }
     
     stage('Build Stage') {
       steps{
-        script {
-          if (isUnix()) {
-               sh "mvn -Dmaven.test.failure.ignore=true clean package"
-            } else {
-            
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
-            }
-        }
-      }
-    
+        
+    echo 'Windows command compile'
     }
     
   }
