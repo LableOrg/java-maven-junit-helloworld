@@ -9,8 +9,8 @@ pipeline{
           },
            windows: {
                        bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                    },
-         failFast: false)
+                    }
+         )
         
         
       
