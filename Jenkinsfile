@@ -6,7 +6,7 @@ pipeline{
         parallel(
           linux: {
             sh "mvn -Dmaven.test.failure.ignore=true clean package"
-          }
+          },
            windows: {
                        bat "mvn -Dmaven.test.failure.ignore=true clean package"
                     }
