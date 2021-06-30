@@ -19,6 +19,7 @@ pipeline{
     }
     
     stage('Slack Notification') {
+      steps{
       slackSend baseUrl: 'https://hooks.slack.com/services/', 
         channel: 'jenkinsmsg', 
         color: 'good', 
@@ -27,6 +28,7 @@ pipeline{
         teamDomain: 'Cybage Mentorship Program', 
         tokenCredentialId: 'Jenkinsslack', 
         username: 'shreyag@cybage.com'
+      }
       
     
   }
