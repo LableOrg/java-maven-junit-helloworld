@@ -21,7 +21,7 @@ pipeline{
     stage('Slack Notification') {
       steps{
      slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'jenkinsmsg', color: 'good', 
-      BuildStarted: '${env.JOB_NAME} ${env.BUILD_NUMBER}',
+       message:"Build Success - ${env.JOB_NAME} JOB: *${env.BUILD_NUMBER}*.For More Info- <${env.BUILD_URL}|Check build>"
        teamDomain: ' Cybage Mentorship Program', 
        tokenCredentialId: 'Jenkinsslack',
        username: 'shreyag@cybage.com'
