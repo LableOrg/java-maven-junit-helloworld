@@ -45,8 +45,7 @@
     // If you're using username and password:
     
     credentialsId: 'JfrogArtifact1',
-  //  username: 'shreyag@cybage.com',
-    // password: 'Shreya@123',
+ 
     )
     rtUpload (
     serverId: 'jfrogartifact28',
