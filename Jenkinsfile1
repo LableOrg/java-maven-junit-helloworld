@@ -38,13 +38,34 @@
   }
   stage('jfrogserver'){
   
-  steps{rtServer (
+  steps{
+  rtServer (
     id: 'jfrogartifact28',
-    url: 'https://jfrogartifact28.jfrog.io/ui/admin/artifactory',
+    url: 'https://jfrogartifact28.jfrog.io/artifactory/artifactjenkins-maven-maven-remote/',
     // If you're using username and password:
     username: 'shreyag',
     password: 'Shreya@123',
     )
+    rtUpload (
+    serverId: 'jfrogartifact28',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "**/target/surefire-reports/TEST-*.xml",
+              "target": "target/*.jar"
+            }
+          ]
+    }''',
+ 
+    // Optional - Associate the downloaded files with the following custom build name and build number,
+    // as build dependencies.
+    // If not set, the files will be associated with the default build name and build number (i.e the
+    // the Jenkins job name and number).
+    buildName: 'JfrogArtifact',
+    buildNumber: '3',
+    // Optional - Only if this build is associated with a project in Artifactory, set the project key as follows.
+    project: 'JfrogArtifact-key'
+)
   
   }
   }
