@@ -36,6 +36,18 @@
       
     
   }
+  stage('jfrogserver'){
+  
+  steps{rtServer (
+    id: 'jfrogartifact28',
+    url: 'https://jfrogartifact28.jfrog.io/ui/admin/artifactory',
+    // If you're using username and password:
+    username: 'shreyag',
+    password: 'Shreya@123',
+    )
+  
+  }
+  }
 }
 
 }
