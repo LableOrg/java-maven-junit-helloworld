@@ -51,8 +51,8 @@
     spec: '''{
           "files": [
             {
-              "pattern": "**/target/surefire-reports/TEST-*.xml",
-              "target": "target/*.jar"
+              "pattern": "target/*.jar",
+              "target": "target/"
             }
           ]
     }''',
