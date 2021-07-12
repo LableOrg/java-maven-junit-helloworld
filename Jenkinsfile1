@@ -43,7 +43,7 @@
     id: 'jfrogartifact28',
     url: 'https://jfrogartifact28.jfrog.io/artifactory/artifactjenkins-maven-maven-remote/',
     // If you're using username and password:
-    username: 'shreyag',
+    username: 'shreyag@cybage.com',
     password: 'Shreya@123',
     )
     rtUpload (
