@@ -13,7 +13,12 @@ public class TestCalculatorService {
         assertEquals(true, obj.isPositive(10));
         //kill mutation #1
         assertEquals(true, obj.isPositive(0));
+    }
 
+       @Test
+    public void testNegative() {
+        CalculatorService obj = new CalculatorService();
+        assertEquals(false, obj.isPositive(10));        
     }
 
 }
