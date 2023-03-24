@@ -1,0 +1,5 @@
+Hello Poll SCM.
+ddemo File added into the jenkins buil trigger  
+Update file for the build trigger demo.
+SCM poll demo for the Jenkins build trigger.
+
