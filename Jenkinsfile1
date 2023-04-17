@@ -1,0 +1,75 @@
+ pipeline{
+  agent any
+  
+  
+  
+  stages{
+    stage('Compile Stage'){
+      steps{
+        script {
+          if (isUnix()) {
+               sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            } else {
+            
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        
+     }
+      post{
+      success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+        
+        
+        
+       
+                }
+      
+      
+      
+      
+      
+      
+      }
+   
+      
+    
+  }
+  stage('jfrogserver'){
+  
+  steps{
+  rtServer (
+    id: 'jfrogartifact28',
+    url: 'https://jfrogartifact28.jfrog.io/artifactory/NewArtifact/',
+    // If you're using username and password:
+    
+    credentialsId: 'JfrogArtifact1',
+ 
+    )
+    rtUpload (
+    serverId: 'jfrogartifact28',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "target/*.jar",
+              "target": "target/"
+            }
+          ]
+    }''',
+ 
+    // Optional - Associate the downloaded files with the following custom build name and build number,
+    // as build dependencies.
+    // If not set, the files will be associated with the default build name and build number (i.e the
+    // the Jenkins job name and number).
+    buildName: 'JfrogArtifact',
+    buildNumber: '3',
+    // Optional - Only if this build is associated with a project in Artifactory, set the project key as follows.
+    project: 'JfrogArtifact-key'
+)
+  
+  }
+  }
+}
+
+}
