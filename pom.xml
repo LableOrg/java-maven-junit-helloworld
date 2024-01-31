@@ -16,7 +16,7 @@
 
     <!-- This configures the compiler to produce Java 8 class files. -->
     <!-- The minimum JDK version installed is 8 of course, but newer JDK releases should work too. -->
-    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
 
     <junit.jupiter.version>5.2.0</junit.jupiter.version>
